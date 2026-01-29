@@ -15,6 +15,7 @@ public class PokemonBattleArena {
 
         Random opponentNumber = new Random();
         int opponentIndex = opponentNumber.nextInt(contestants.size());
+        while(opponentIndex == choice - 1) opponentIndex = opponentNumber.nextInt(contestants.size());
         Pokemon opponent = contestants.get(opponentIndex);
 
         System.out.println("\n\n\nA wild " + opponent.getName() + " has appeared!");
@@ -80,6 +81,13 @@ public class PokemonBattleArena {
         defender.setHp(newHp);
 
         System.out.println("Dealt " + (int)damage + " damage.");
-        System.out.println(defender.getName() + " has " + defender.getHp() + " remaining!");
+
+        if(move.getHealPoints() > 0){
+            int healAmount = (int) move.getHealPoints();
+            int newAttackerHp = attacker.getHp() + healAmount;
+            attacker.setHp(newAttackerHp);
+            System.out.println(attacker.getName() + " healed " + healAmount + " hp and has " + newAttackerHp + " remaining!");
+        }
+        System.out.println(defender.getName() + " has " + defender.getHp() + " hp remaining!\n\n");
     }
 }

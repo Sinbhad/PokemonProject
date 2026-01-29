@@ -1,7 +1,7 @@
 public class Pokemon{
     private int hp, speed;
     private String name, pokemonType;
-    private Move[] moves = new Move[4];
+    private final Move[] moves = new Move[4];
 
     public int getHp(){
         return hp;
@@ -15,12 +15,12 @@ public class Pokemon{
         return name;
     }
 
-    public void setName(String userInputName){
-        name = userInputName;
+    public void setName(String name){
+        this.name = name;
     }
 
-    public void setPokemonType(String pokemonElement){
-        pokemonType = pokemonElement;
+    public void setPokemonType(String pokemonType){
+        this.pokemonType = pokemonType;
     }
 
     public String getPokemonType(){
