@@ -1,4 +1,4 @@
-public class Pokemon{
+public class Pokemon implements Comparable {
     private int hp, speed;
     private String name, pokemonType;
     private final Move[] moves = new Move[4];
@@ -41,5 +41,18 @@ public class Pokemon{
 
     public int getSpeed(){
         return speed;
+    }
+
+       // e
+
+    @Override
+    public int compareTo(Pokemon timmy) {
+        if(this.getHp() < timmy.getHp()){
+            return -1;
+        }else if(this.getHp() == timmy.getHp()) {
+            return 0;
+        } else{
+            return 1;
+        }
     }
 }
